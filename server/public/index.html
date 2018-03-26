@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vendors/angular/angular.js"></script>
+    <script src="scripts/client.js"></script>
+    <title>Week 3 Review</title>
+</head>
+<body ng-app="MyApp">
+    <div ng-controller="ReviewController as vm">
+        <h1>Week 3 Review</h1>
+        <div id="inputs">
+            <input type="text" ng-model="vm.newPerson.firstName">
+            <input type="text" ng-model="vm.newPerson.lastName">
+            <input type="number" ng-model="vm.newPerson.age">
+            <input type="text" ng-model="vm.newPerson.favoriteColor">
+            <button ng-click="vm.addPerson(vm.newPerson)">Create a Person</button>
+        </div>
+        <h2>All the Lonely People</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Favorite Color</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="person of vm.arrayOfPeople">
+                <tr>
+                    <td>{{person.firstName}}</td>
+                    <td>{{person.lastName}}</td>
+                    <td>{{person.age}}</td>
+                    <td>{{person.favoriteColor}}</td>
+                    <td><button ng-click="vm.remove(person)">Remove Person</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
